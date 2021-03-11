@@ -1,3 +1,4 @@
+# Load from source
 FROM redislabs/rejson:latest
 
 # Set new password

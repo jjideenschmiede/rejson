@@ -7,5 +7,5 @@ The whole dockerfile actually just loads the redislabs/rejson image and takes th
 ## How to use it?
 
 ```console
-docker push jojojojonas/rejson:tagname
+docker push jojojojonas/rejson:latest
 ```
