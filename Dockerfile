@@ -5,4 +5,4 @@ FROM redislabs/rejson:latest
 ENV REDIS_PASSWORD default
 
 # Set password to redis via shell
-CMD ["sh", "-c", "exec redis-server --requirepass \"$REDIS_PASSWORD\" --appendonly yes"]
+CMD redis-server --requirepass \"$REDIS_PASSWORD\" --appendonly yes
