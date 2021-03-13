@@ -10,4 +10,4 @@ ENV REDIS_PASSWORD default
 COPY --from=rejson /usr/lib/redis/modules/rejson.so /usr/lib/redis/modules/
 
 # Start Server and set module, password & appendonly
-CMD ["redis-server", "--loadmodule", "/usr/lib/redis/modules/rejson.so", "--requirepass", "$REDIS_PASSWORD", "--appendonly", "yes"]
+CMD ["redis-server", "--loadmodule", "/usr/lib/redis/modules/rejson.so", "--requirepass", "\"$REDIS_PASSWORD\"", "--appendonly", "yes"]
