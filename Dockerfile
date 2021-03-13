@@ -1,11 +1,13 @@
-# Load from source
-FROM redislabs/rejson:latest
+# Load from reccource
+FROM redislabs/rejson:latest as rejson
+FROM redislabs/redisgears:latest
 
-# Set new password
+# Config enviroment variables
+# Set password
 ENV REDIS_PASSWORD default
 
-# Load json modules
-RUN redis-server --loadmodule ./target/release/librejson.dylib
+# Copy module file for redis jason
+COPY --from=rejson /usr/lib/redis/modules/rejson.so /usr/lib/redis/modules/
 
-# Set password to redis via shell
-RUN redis-server --requirepass $REDIS_PASSWORD --appendonly yes
+# Start Server and set module, password & appendonly
+CMD ["redis-server", "--loadmodule", "/usr/lib/redis/modules/rejson.so", "--requirepass", "$REDIS_PASSWORD", "--appendonly", "yes"]
