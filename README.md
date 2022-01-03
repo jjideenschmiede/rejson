@@ -9,5 +9,5 @@ The whole dockerfile actually just loads the redislabs/rejson image and takes th
 ## How to use it?
 
 ```console
-docker push jjdevelopment/rejson:latest
+docker pull jjdevelopment/rejson:latest
 ```
